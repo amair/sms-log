@@ -23,7 +23,9 @@ class SmController < ApplicationController
 
   def sm_params
     # whitelist params
-    params.permit(:mobile, :content, :username, :timestamp, :digest)
+    #params.permit(:mobile, :content, :username, :timestamp, :digest)
+    #Allow all params for debugging
+    params.permit!
   end
 
   def set_sm
