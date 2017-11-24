@@ -5,13 +5,13 @@ module ExceptionHandler
 
   included do
     rescue_from ActiveRecord::RecordNotFound do |e|
-      json_response({ message: e.message }, :not_found) #404
+      #json_response({ message: e.message }, :not_found) #404
+      render plain: "RG_SMS_OS", status: :internal_server_error
     end
 
     rescue_from ActiveRecord::RecordInvalid do |e|
-      json_response({ message: e.message }, :unprocessable_entity) #422
+      render plain: "RG_SMS_OS", status: :internal_server_error
     end
     
-    # :internal_server_error (500)
   end
 end

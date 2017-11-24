@@ -11,7 +11,8 @@ class SmController < ApplicationController
   # POST /sm
   def create
     @sm = Sm.create!(sm_params)
-    json_response(@sm)
+    #json_response(@sm)
+    render plain: "SUCCESS"
   end
 
   # GET /sm/:id
