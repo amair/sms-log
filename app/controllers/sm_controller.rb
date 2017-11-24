@@ -5,13 +5,16 @@ class SmController < ApplicationController
   # GET /sm
   def index
     @sm = Sm.all
-    #json_response(@sm)
   end
 
   # POST /sm
   def create
     @sm = Sm.create!(sm_params)
-    #json_response(@sm)
+    
+    str_params = sm_params.stringify_keys
+    
+    computed_md5=compute_md5(str_params['username'] << "PASSWORD" << str_params['digest'])
+    Rails.logger.warn "Computed the MD5 as #{computed_md5}" 
     render plain: "SUCCESS"
   end
 
@@ -29,5 +32,10 @@ class SmController < ApplicationController
 
   def set_sm
     @sm = Sm.find(params[:id])
+  end
+  
+  def compute_md5 message
+    md5 = Digest::MD5.new  
+    md5.hexdigest  message #base64digest 
   end
 end
