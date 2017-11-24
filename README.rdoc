@@ -1,0 +1,5 @@
+== README
+
+https://scotch.io/tutorials/build-a-restful-json-api-with-rails-5-part-one
+
+curl -X POST -H "Content-Type: application/json" -d '{"mobile":"07740866545","content":"1234","username":"sms","timestamp":"10:29:00 12/11/17","digest":"12AB34"}' http://localhost:8080/sm  
