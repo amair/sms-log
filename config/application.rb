@@ -26,6 +26,6 @@ module Workspace
     config.active_record.raise_in_transactional_callbacks = true
     
     #Allow console for work machines
-    config.web_console.whitelisted_ips = '108.171.128.181'#'192.168.0.0/16'
+    #config.web_console.whitelisted_ips = '108.171.128.181'#'192.168.0.0/16'
   end
 end
