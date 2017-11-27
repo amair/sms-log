@@ -13,7 +13,7 @@ class SmController < ApplicationController
     
     str_params = sm_params.stringify_keys
     
-    computed_md5=compute_md5(str_params['username'] << "PASSWORD" << str_params['digest'])
+    computed_md5=compute_md5(str_params['username'] << "PASSWORD" << str_params['timestamp'])
     Rails.logger.warn "Computed the MD5 as #{computed_md5}" 
     render plain: "SUCCESS"
   end
@@ -22,6 +22,8 @@ class SmController < ApplicationController
   def show
     json_response(@sm)
   end
+  
+
  
   private
 
@@ -38,4 +40,7 @@ class SmController < ApplicationController
     md5 = Digest::MD5.new  
     md5.hexdigest  message #base64digest 
   end
+  
+
+
 end

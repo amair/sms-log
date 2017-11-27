@@ -1,18 +1,23 @@
-<h1>Sms</h1>
+<head>
+  <title>List of SMS' sent</title>
+</head>
 
-<table>
-  <thead>
-    <tr>
-    <th>mobile</th>
-    <th>content</th>
-    <th>username</th>
-    <th>timestamp</th>
-    <th>digest</th>
-    <th>created_at</th>      
-    </tr>
-  </thead>
-
-  <tbody>
-    <%= render @sm %>
-  </tbody>
-</table>
+<body>
+  <table class="tg">
+    <thead>
+      <tr>
+      <th class="tg-2kuk">mobile</th>
+      <th class="tg-2kuk">content</th>
+      <th class="tg-2kuk">username</th>
+      <th class="tg-2kuk">orig_timestamp</th>
+      <th class="tg-2kuk">timestamp</th>
+      <th class="tg-2kuk">digest</th>
+      <th class="tg-2kuk">created_at</th>      
+      </tr>
+    </thead>
+  
+    <tbody>
+      <%= render @sm %>
+    </tbody>
+  </table>
+</body>
