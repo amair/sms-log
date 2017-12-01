@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  around_filter :global_request_logging
+  around_action :global_request_logging
   include Response
   include ExceptionHandler
   
@@ -8,9 +8,8 @@ class ApplicationController < ActionController::Base
   #protect_from_forgery with: :exception
   
   def global_request_logging 
-    #http_request_header_keys = request.headers.keys.select{|header_name| header_name.match("^HTTP.*")}
-    #http_request_headers = request.headers.select{|header_name, header_value| http_request_header_keys.index(header_name)}
-    logger.warn "Received #{request.method.inspect} to #{request.url.inspect} from #{request.remote_ip.inspect}.  Processing with headers #{request.headers.inspect} and params #{params.inspect}"
+    http_request_header_keys = request.headers.select{|header_name, header_value| header_name.match("^HTTP.*")}
+    logger.warn "Received #{request.method.inspect} to #{request.url.inspect} from #{request.remote_ip.inspect}.  Processing with headers #{http_request_header_keys} and params #{params.inspect}"
     begin 
       yield 
     ensure 
