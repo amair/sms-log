@@ -31,7 +31,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 group :production do
-  gem 'pg'
+  gem 'pg' # heroku uses postgres
+  gem 'rails_12factor' # heroku needs rails to serve assets
 end
 
 group :development, :test do
