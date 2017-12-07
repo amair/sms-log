@@ -2,6 +2,8 @@
 
 https://scotch.io/tutorials/build-a-restful-json-api-with-rails-5-part-one
 
+https://github.com/sstephenson/global_phone
+
 curl -X POST -H "Content-Type: application/json" -d '{"mobile":"07740866545","content":"1234","username":"sms","timestamp":"10:29:00 12/11/17","digest":"12AB34"}' http://localhost:8080/sm  
 
 curl -X POST -F 'mobile=07740855986' -F 'content=1234' -F 'username=sms' -F 'timestamp=1511540132311' -F 'digest=97f62bc511bacfffc952b6a890ac3e0a' http://localhost:8080/sm

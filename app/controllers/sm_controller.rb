@@ -15,7 +15,13 @@ class SmController < ApplicationController
     
     computed_md5=compute_md5(str_params['username'] << "PASSWORD" << str_params['timestamp'])
     Rails.logger.warn "Computed the MD5 as #{computed_md5}" 
-    render plain: "SUCCESS"
+    
+    if str_params['mobile'] == "01415344606"
+      render plain: "RG_INVALID_PHONE", status: :internal_server_error
+    else
+      render plain: "SUCCESS"
+    end
+ 
   end
 
   # GET /sm/:id
